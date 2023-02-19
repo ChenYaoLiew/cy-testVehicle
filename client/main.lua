@@ -153,6 +153,9 @@ local function OpenMenu()
 			if data2.current.value == 'yes' then
                 ESX.TriggerServerCallback("cy-testVehicle:removeMoney", function(removed) 
                     if removed then
+						menu2.close()
+                        menu.close()
+
                         local ped = PlayerPedId()
                         local target = vector3(Config.TestVehicleArea.x, Config.TestVehicleArea.y, Config.TestVehicleArea.z)
 
@@ -164,8 +167,6 @@ local function OpenMenu()
                         end
         
                         IsInShopMenu = false
-                        menu2.close()
-                        menu.close()
                         DeleteDisplayVehicleInsideShop()
         
                         SetEntityCoords(ped, target)
